@@ -42,6 +42,7 @@ SELECT username, department
 FROM employees;
 ```
 When I add a semicolon (`;`) at the end of my query, it tells SQL that is the end of my query.
+<img src="https://imgur.com/tlAOG2Q.png" height="80%" width="80%"/>
 
 If I want to return all the columns from the employees table,
 I would need to add an asterisk (`*`) after `SELECT`
@@ -59,6 +60,8 @@ SELECT*
 FROM employees
 WHERE department = ‘finance’;
 ```
+<img src="https://imgur.com/DuC6z8n.png" height="80%" width="80%"/>
+
 Instead of using the `WHERE` keyword, I can replace it with `ORDER BY` and pair the keyword with `DESC`, to sort it in descending order.
 
 ```
@@ -66,6 +69,8 @@ SELECT customerid, city, country
 FROM customers
 ORDER BY login_time DESC;
 ```
+<img src="https://imgur.com/eNgWu27.png" height="80%" width="80%"/>
+
 ### Operators
 When filtering **numeric** and **data and time data*Z*, it involves **operators**.
 
@@ -117,6 +122,8 @@ SELECT*
 FROM login_attemps
 WHERE country LIKE 'us%';
 ```
+<img src="https://imgur.com/yu2VeC7.png" height="80%" width="80%"/>
+
 This query returns all records with values in the title column that start with the pattern of 'US'. This means both 'US' and 'USA’ are returned.
 </details>
 
@@ -129,17 +136,19 @@ SELECT*
 FROM log_in_attempts
 WHERE login_time > ‘18:00’ AND success = 0;
 ```
-
-I filtered the failed login attempts after 18:00 hours, by using the great than sign (>).
-
-
-1 = success
-0 = failed
-
-**Note**: we don’t add quotations (‘ ‘) to plain numbers, but when it comes to date and time we have to add quotations between them.
+<img src="https://imgur.com/YUuCfdX.png" height="80%" width="80%"/>
 
 | I discovered that there were 19 failed attempts after 18:00     |
 | :---      |
+
+I filtered the failed login attempts after 18:00 hours, by using the great than sign (`>`).
+
+
+1 = success
+<Br>0 = failed
+
+**Note**: we don’t add quotations (‘ ‘) to plain numbers, but when it comes to date and time we have to add quotations between them.
+
 
 # Retrieve login attempts on specific dates
 A suspicious event on 2022-05-09 or 2022-05-08. 
@@ -150,8 +159,9 @@ SELECT *
 FROM log_in_attempts 
 WHERE login_date = '2022-05-09' OR login_date = '2022-05-08';
 ```
+I used the `OR` operator to get data from either of the dates 2022-05-09 or 2022-05-08. I used the equals (`=`) to get the exact dates that I wanted.
 
-I used the OR operator to get data from either of the dates 2022-05-09 or 2022-05-08. I used the equals (=) to get the exact dates that I wanted.
+<img src="https://imgur.com/ysQK8zp.png" height="80%" width="80%"/>
 
 | There were 75 login attempts between the two days.   |
 | :---      |
@@ -165,8 +175,9 @@ SELECT *
 FROM log_in_attempts 
 WHERE NOT country LIKE 'MEX%';
 ```
+I used the `NOT` operator to filter out MEXICO from the results. Since MEXICO can be spelled like “MEX” or “MEXICO”. I had to use the `LIKE` operator along with a wildcard which is the percentage sign (`%`) to remove any country spelled with MEX at the beginning. 
 
-I used the NOT operator to filter out MEXICO from the results. Since MEXICO can be spelled like “MEX” or “MEXICO”. I had to use the LIKE operator along with a wildcard which is the percentage sign (%) to remove any country spelled with MEX at the beginning. 
+<img src="https://imgur.com/Asc73nu.png" height="80%" width="80%"/>
 
 | There were 144 login attempts were outside of Mexico.   |
 | :---      |
@@ -181,31 +192,39 @@ FROM employees
 WHERE department = ‘marketing’ AND office LIKE ‘East%’;
 ```
 
-Similar to the previous SQL query I used a wildcard, percent (%) for office buildings that had the word East in them. I combined the two conditions with the AND operator to find all marketing employees from the east office.
+Similar to the previous SQL query I used a wildcard, percent (`%`) for office buildings that had the word East in them. I combined the two conditions with the `AND` operator to find all marketing employees from the east office.
+
+<img src="https://imgur.com/L6lgs60.png" height="80%" width="80%"/>
 
 | There are 7 employees from the marketing department that work in the east buildings.    |
 | :---      |
 
 # Retrieve employees in Finance or Sales
 The team needs to perform different updates to the computers of all employees in the Finance or the Sales department, so I need to locate information on these employees.
-```
+
 I used the SQL query
+```
 SELECT*
 FROM employees
 WHERE department = ‘finance’ OR department = ‘sales’;
 ```
+<img src="https://imgur.com/tAG7ufx.png" height="80%" width="80%"/>
 
-| I found that 71 employee's computers in Finance and Sales departments need updates.   |
+| I found that 71 employee's computers in Finance and Sales department need updates.   |
 | :---      |
 
 # Retrieve all employees not in IT
 Our team needs to make one more update. Since the Information Technology department already received updates. I need to retrieve information from all the other departments.
-```
+
 I used the SQL query
+```
 SELECT*
 FROM employees
 WHERE NOT department = ‘Information Technology’;
 ```
+To remove the Information Technology department from the results I used the `NOT` keyword after `WHERE`.
+
+<img src="https://imgur.com/ATG06So.png" height="80%" width="80%"/>
 
 | 161 employee’s computers that were not in the IT department need updates.    |
 | :---      |
