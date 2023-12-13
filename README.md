@@ -210,6 +210,8 @@ WHERE department = ‘finance’ OR department = ‘sales’;
 ```
 <img src="https://imgur.com/tAG7ufx.png" height="80%" width="80%"/>
 
+I used the `OR` operator because I needed information from the Finance or Sales department.
+
 | I found that 71 employee's computers in Finance and Sales department need updates.   |
 | :---      |
 
