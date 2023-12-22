@@ -72,7 +72,7 @@ ORDER BY login_time DESC;
 <img src="https://imgur.com/eNgWu27.png" height="80%" width="80%"/>
 
 ### Operators
-When filtering **numeric** and **data and time data*Z*, it involves **operators**.
+When filtering **numeric** and **data and time data**, it involves **operators**.
 
 Here are the operators that can be used:
 
@@ -90,7 +90,7 @@ Here are the operators that can be used:
 | `NOT`     |  The `NOT` operator only works on a single condition, and not on multiple ones. The `NOT` operator negates a condition. <br>**NOTE**: You add this operator after `WHERE`, then put the conditions after it|  `SELECT`*<br>`FROM` log_in_attempts<br>`WHERE` `NOT` login_time  `<` ’10:00’;    |
 
 ### Filtering for Patterns
-You can also filter based on a pattern. For example, you can identify entries that start or end with a certain character or characters. Filtering for a pattern requires incorporating two more elements into your `WHERE` clause:
+You can also filter based on a pattern. For example, you can identify entries that start or end with a certain character(s). Filtering for a pattern requires incorporating two more elements into your `WHERE` clause:
 - a wildcard 
 - the `LIKE` operator
 
